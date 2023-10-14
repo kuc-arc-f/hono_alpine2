@@ -14,7 +14,8 @@ export const AlpineTest2: FC<{ items: any[] }> = (props: { items: any[] }) => {
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.1/dist/cdn.min.js"></script>
         {/* alpine  */}
         {html`
-        <h3 class="text-3xl font-bold">x-for</h3>
+        <h3 class="text-3xl font-bold">x-for + API</h3>
+        <hr class="my-2" />
         <div class="mb-5" x-data="data">
             <template x-for="item in items" :key="item.id">
               <div x-data="{ ...{ item }}">
@@ -24,7 +25,7 @@ export const AlpineTest2: FC<{ items: any[] }> = (props: { items: any[] }) => {
               </div>
             </template>
             <!-- button --> 
-            <button @click="get_list()">[ Test1 ]</button>
+            <button @click="get_list()" class="btn-purple ms-2 my-2">Test</button>
         </div>
         `}
         <hr class="my-2" />

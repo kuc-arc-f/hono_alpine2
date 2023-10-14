@@ -2,13 +2,11 @@
 const data = {
     /*  */
     items: [
-        { id: 1, title: '１番目のタイトル', content: '１番目のコンテンツ', url: 'https://example.com' },
-        { id: 2, title: '２番目のタイトル', content: '２番目のコンテンツ' },
-        { id: 3, title: '３番目のタイトル', content: '３番目のコンテンツ'},
-        { id: 4, title: '4番目のタイトル', content: '３番目のコンテンツ'},
+        { id: 1, title: 'みかん', content: '' },
+        { id: 2, title: 'すいか', content: '' },
+        { id: 3, title: 'りんご', content: ''},
     ],
     get_list: async function() {
-//        const d =  await fetch("/api/alpine2");
 //console.log(d.body);
         this.items = [];
         const res = await fetch("/api/alpine2");

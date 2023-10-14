@@ -40,11 +40,9 @@ const Router = {
 console.log("#get_list");
         try{    
             const items = [
-                { id: 11, title: '11番目のタイトル', content: '１番目のコンテンツ', url: 'https://example.com' },
-                { id: 13, title: '13番目のタイトル', content: '３番目のコンテンツ'},
-                { id: 14, title: '14番目のタイトル', content: '３番目のコンテンツ'},
-                { id: 15, title: '15番目のタイトル', content: '３番目のコンテンツ'},
-                { id: 16, title: '16番目のタイトル', content: '３番目のコンテンツ'},
+                { id: 11, title: 'apple', content: '' },
+                { id: 13, title: 'orange', content: ''},
+                { id: 14, title: 'tomato', content: ''},
             ];
             return items;
         } catch (e) {
