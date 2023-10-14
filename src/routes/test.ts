@@ -55,6 +55,28 @@ console.log("#get_list");
      * @param
      *
      * @return
+     */ 
+    test12: async function(c, DB)
+    {
+//console.log("#test12");
+        try{    
+            const result = await DB.prepare(`SELECT * FROM Task ORDER BY id DESC`).all();
+//console.log(result.results);
+            if(result.results.length < 1) {
+                console.error("Error, results.length < 1");
+                return [];
+            }
+            return result.results;
+        } catch (e) {
+            console.error(e);
+            return [];
+        } 
+    },
+    /**
+     *
+     * @param
+     *
+     * @return
      */    
     get: async function(c, DB, id)
     {

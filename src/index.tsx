@@ -11,6 +11,7 @@ import taskRouter from './routes/tasks';
 /* */
 import {AlpineTest} from './views/alpine1/App';
 import {AlpineTest2} from './views/alpine2/App';
+import {AlpineTest3} from './views/alpine3/App';
 
 import {Csr1} from './views/csr1/App';
 import {Csr2} from './views/csr2/App';
@@ -21,6 +22,7 @@ interface Env {
 //
 export const app = new Hono()
 //basicAuth
+/*
 app.use(
   "/*",
   basicAuth({
@@ -28,6 +30,7 @@ app.use(
     password: "1111",
   })
 );
+*/
 //serveStatic
 app.get('/static/*', serveStatic({ root: './' }))
 app.get('/js/*', serveStatic({ root: './' }))
@@ -60,6 +63,10 @@ app.get('/alpine1', async (c) => {
 app.get('/alpine2', async (c) => { 
   return c.html(<AlpineTest2 items={[]} />);
 });
+app.get('/alpine3', async (c) => { 
+  return c.html(<AlpineTest3 items={[]} />);
+});
+
 /* */
 app.get('/test/test1', async (c) => { return await testRouter.test1(c.env.DB); });
 /* CSR */
@@ -77,6 +84,7 @@ app.get('/csr2', async (c) => {
 */
 app.post('/api/test/create', async (c) => { 
   const body = await c.req.json();
+console.log(body);
   const resulte = await testRouter.create(body, c.env.DB);
   return c.json(resulte);
 });
@@ -111,6 +119,10 @@ app.post('/api/csr2/get_list', async (c) => {
 });
 app.get('/api/alpine2', async (c) => { 
   const resulte = await testRouter.test11(c, c.env.DB);
+  return c.json({ret: "OK", data: resulte});
+});
+app.get('/api/alpine3', async (c) => { 
+  const resulte = await testRouter.test12(c, c.env.DB);
   return c.json({ret: "OK", data: resulte});
 });
 
