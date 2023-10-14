@@ -29,62 +29,24 @@ const Router = {
             return Response.json(retObj);
         } 
     },   
-/*
-    test9: async function(c, DB)
-    {
-        try{    
-            const result = await DB.prepare(`SELECT * FROM Task ORDER BY id DESC`).all();
-    console.log(result.results);
-            if(result.results.length < 1) {
-                console.error("Error, results.length < 1");
-                return Response.json({ret: "OK", data: []});
-            }
-            const s = renderToString(Test9(result.results));
-            return c.text(s);
-        } catch (e) {
-            console.error(e);
-            return Response.json(retObj);
-        } 
-    },  
-*/
-    /**
-     * route
-     * @param
-     *
-     * @return
-     */ 
-    test10: async function(c, DB)
-    {
-        try{    
-            const result = await DB.prepare(`SELECT * FROM Task ORDER BY id DESC`).all();
-    console.log(result.results);
-            if(result.results.length < 1) {
-                console.error("Error, results.length < 1");
-                return Response.json({ret: "OK", data: []});
-            }
-            return result.results;
-        } catch (e) {
-            console.error(e);
-            return [];
-        } 
-    },
     /**
      *
      * @param
      *
      * @return
      */ 
-    get_list: async function(c, DB)
+    test11: async function(c, DB)
     {
 console.log("#get_list");
         try{    
-            const result = await DB.prepare(`SELECT * FROM Task ORDER BY id DESC`).all();
-//console.log(result.results);
-            if(result.results.length < 1) {
-                console.error("Error, results.length < 1");
-                return [];
-            }
-            return result.results;
+            const items = [
+                { id: 11, title: '11番目のタイトル', content: '１番目のコンテンツ', url: 'https://example.com' },
+                { id: 13, title: '13番目のタイトル', content: '３番目のコンテンツ'},
+                { id: 14, title: '14番目のタイトル', content: '３番目のコンテンツ'},
+                { id: 15, title: '15番目のタイトル', content: '３番目のコンテンツ'},
+                { id: 16, title: '16番目のタイトル', content: '３番目のコンテンツ'},
+            ];
+            return items;
         } catch (e) {
             console.error(e);
             return [];

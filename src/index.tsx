@@ -10,6 +10,7 @@ import testRouter from './routes/test';
 import taskRouter from './routes/tasks';
 /* */
 import {AlpineTest} from './views/alpine1/App';
+import {AlpineTest2} from './views/alpine2/App';
 
 import {Csr1} from './views/csr1/App';
 import {Csr2} from './views/csr2/App';
@@ -55,6 +56,9 @@ app.get('/', (c) => {
 /* alpine */
 app.get('/alpine1', async (c) => { 
   return c.html(<AlpineTest items={[]} />);
+});
+app.get('/alpine2', async (c) => { 
+  return c.html(<AlpineTest2 items={[]} />);
 });
 /* */
 app.get('/test/test1', async (c) => { return await testRouter.test1(c.env.DB); });
@@ -103,8 +107,13 @@ app.post('/api/tasks/delete', async (c) => {
 });
 //
 app.post('/api/csr2/get_list', async (c) => { 
-  const body = await c.req.json();
-  const resulte = await testRouter.get_list(c, c.env.DB);
+//  const body = await c.req.json();
+//  const resulte = await testRouter.get_list(c, c.env.DB);
+  return c.json({ret: "OK", data: []});
+});
+app.get('/api/alpine2', async (c) => { 
+//  const body = await c.req.json();
+  const resulte = await testRouter.test11(c, c.env.DB);
   return c.json({ret: "OK", data: resulte});
 });
 
