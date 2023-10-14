@@ -19,10 +19,8 @@ export const Layout: FC = (props) => {
         <a href="/">[ home ]</a>
         <a href="/test/test_index"><span class="ps-2">[test]</span></a>
         <a href="/alpine1"><span class="ps-2">[ alpine1 ]</span></a>
+        <a href="/alpine2"><span class="ps-2">[ alpine2 ]</span></a>
         {/* <a href="/csr2">[ Csr2 ]</a> 
-        <a href="/tasks"><span class="ps-2">[ Tasks ]</span></a>
-        <a href="/csr1"><span class="ps-2">[ Csr1 ]</span></a>
-        <a href="/task2"><span class="ps-2">[ Task2 ]</span></a>
         */}
       </div>
       <hr />
