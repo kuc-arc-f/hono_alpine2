@@ -1,0 +1,71 @@
+
+DROP TABLE IF EXISTS User;
+CREATE TABLE "User" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME,
+    "password" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "name" TEXT
+);
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+DROP TABLE IF EXISTS Task;
+CREATE TABLE "Task" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME,
+    "title" TEXT,
+    "content" TEXT,
+    "userId" INTEGER
+);
+
+DROP TABLE IF EXISTS "Session";
+CREATE TABLE "Session" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "sessionId" TEXT NOT NULL,
+    "key" TEXT NOT NULL,
+    "value" TEXT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME
+);
+
+DROP TABLE IF EXISTS "Site";
+CREATE TABLE "Site" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME,
+    "name" TEXT NOT NULL,
+    "content" TEXT,
+    "userId" INTEGER
+);
+DROP TABLE IF EXISTS "Category";
+CREATE TABLE "Category" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME,
+    "name" TEXT NOT NULL,
+    "siteId" INTEGER,
+    "userId" INTEGER
+);
+DROP TABLE IF EXISTS "Post";
+CREATE TABLE "Post" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME,
+    "title" TEXT,
+    "content" TEXT,
+    "siteId" INTEGER NOT NULL,
+    "categoryId" INTEGER,
+    "userId" INTEGER
+);
+DROP TABLE IF EXISTS "Page";
+CREATE TABLE "Page" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME,
+    "title" TEXT,
+    "content" TEXT,
+    "siteId" INTEGER NOT NULL,
+    "userId" INTEGER
+);
