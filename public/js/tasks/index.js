@@ -34,13 +34,18 @@ console.log("#addItem");
         try{
             let ret = false;
             let titleValue = "";
+            let contentValue = "";
             const title = document.querySelector("#title");
             if(title) {
                 titleValue = title.value;
             }
+            const content = document.querySelector("#content");
+            if(content) {
+                contentValue = content.value;
+            }
             const item = {
                 title: titleValue,
-                content: "",
+                content: contentValue,
             }
 console.log(item);
 //return;

@@ -6,7 +6,7 @@
 
  date    : 2023/10/13 
 
- update  : 2023/10/15 
+ update  : 2023/10/15
 
 ***
 ### Summary
@@ -34,9 +34,8 @@ binding = "DB" # i.e. available in your Worker on env.DB
 database_name = ""
 database_id = ""
 
-
-
 ```
+
 ***
 ### blog 
 

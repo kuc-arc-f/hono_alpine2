@@ -19,6 +19,9 @@ export const TaskIndex: FC<{ items: any[] }> = (props: { items: any[] }) => {
             <input type="text" id="title" 
             class="border border-gray-400 rounded-md px-3 py-2 w-full focus:outline-none focus:border-blue-500"/>
             <hr class="my-2" />
+            <label>Content:</label>
+            <textarea id="content" class="input_textarea mx-2"></textarea>
+            <hr class="my-2" />
             <button @click="addItem()" class="btn-purple ms-2 my-2">Save</button>
             <hr class="my-2" />
 
@@ -28,8 +31,9 @@ export const TaskIndex: FC<{ items: any[] }> = (props: { items: any[] }) => {
                 id: <span class="mb-3 font-normal text-gray-700" x-text="item.id"></span>
                 , <span class="mb-3 font-normal text-gray-700" x-text="item.createdAt">
                 </span>
-                <a :href="item.url" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg">
-                [ Show ]
+                <a :href="item.url" 
+                class="input_textarea">
+                Show
                 </a>                
                 <hr class="my-2" />
               </div>
