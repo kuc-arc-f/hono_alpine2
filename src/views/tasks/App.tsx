@@ -15,6 +15,13 @@ export const TaskIndex: FC<{ items: any[] }> = (props: { items: any[] }) => {
         <h1 class="text-4xl font-bold">Tasks</h1>
         <hr class="my-2" />
         <div class="mb-5" x-data="data">
+            <label>Title:</label>
+            <input type="text" id="title" 
+            class="border border-gray-400 rounded-md px-3 py-2 w-full focus:outline-none focus:border-blue-500"/>
+            <hr class="my-2" />
+            <button @click="addItem()" class="btn-purple ms-2 my-2">Save</button>
+            <hr class="my-2" />
+
             <template x-for="item in items" :key="item.id">
               <div x-data="{ ...{ item }}">
                 <h3 class="mb-3 text-3xl font-bold" x-text="item.title"></h3>
@@ -27,8 +34,6 @@ export const TaskIndex: FC<{ items: any[] }> = (props: { items: any[] }) => {
                 <hr class="my-2" />
               </div>
             </template>
-            <!-- button --> 
-            <button @click="get_list()" class="btn-purple ms-2 my-2">Test</button>
         </div>
         `}
         <hr class="my-2" />
@@ -40,5 +45,7 @@ export const TaskIndex: FC<{ items: any[] }> = (props: { items: any[] }) => {
 }
 
 /*
+<!-- button --> 
+<button @click="get_list()" class="btn-purple ms-2 my-2">Test</button>
 <p class="mb-3 font-normal text-gray-700" x-text="item.title"></p>
 */

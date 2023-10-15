@@ -1,6 +1,5 @@
 //import { Hono } from "hono";
 import type { Database } from '@cloudflare/d1'
-//import {Test9} from '../views/test9/App';
 //
 interface Env {
     DB: Database
@@ -77,12 +76,14 @@ console.log("#get_list");
      * @param
      *
      * @return
-     */    
-    get: async function(body, c, DB)
+     */  
+    // get(c, c.env.DB, id) 
+    //get: async function(body, c, DB) 
+    get: async function(c, DB, id)
     {
         //console.log("#get");
         try{    
-            const sql = `SELECT * FROM Task WHERE id = ${body.id}`;            
+            const sql = `SELECT * FROM Task WHERE id = ${id}`;            
             const result = await DB.prepare(sql).all();
             //console.log(result.results);
             if(result.results.length < 1) {

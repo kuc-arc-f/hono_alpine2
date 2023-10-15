@@ -1,29 +1,28 @@
-
-console.log("id=", TaskItemId);
+console.log("#tasks.delet.id=", itemId);
 //
-const TestCreate = {
+const data = {
+    /**
+     *
+     * @param
+     *
+     * @return
+     */    
+    items: [],
     /**
      *
      * @param
      *
      * @return
      */  
-    delete : async function()
+    deleteItem : async function()
     {
         try{
-            let ret = false;
             let idValue = "";
-            /*
-            const item_id = document.querySelector("#item_id");
-            if(item_id) {
-                idValue = item_id.value;
-            }
-            */
             const item = {
                 api_key: "",
-                id: Number(TaskItemId),
+                id: Number(itemId),
             }
-//console.log("title=", titleValue);
+console.log(item);
             const body = JSON.stringify(item);		
             const res = await fetch("/api/tasks/delete", {
                 method: 'POST',
@@ -38,41 +37,36 @@ console.log(json);
             }
             if (json.ret !==  "OK") {
                 console.error("Error, json.ret <> OK");
-                return ret;
+                throw new Error("Error, json.ret <> OK");
             }
-            ret = true;
-            return ret;
+            location.href = '/tasks';
         } catch (e) {
             console.error("Error, delete");
             console.error(e);
-            throw new Error('Error , delete');
         }
-    },         
+    },
     /**
-     * startProc
+     *
      * @param
      *
      * @return
-     */   
-    startProc :async function ()
-    {
-        try{
-            console.log("#startProc");
-            //btn
-            const button = document.querySelector('#btn_delete');
-            button.addEventListener('click', async () => {
-//console.log("btn_delete=");
-                const result = await this.delete();
-console.log("result=", result);
-                if(result === true) {
-                    window.location.href = '/tasks';
-                }
-            }); 
-        } catch (e) {
-            console.error(e);
-        }    
-    },
-
-}
-//
-TestCreate.startProc();
+     */    
+    convertUrl: function(items){
+        const ret = [];
+        items.forEach(function(item){
+            item.url = `/tasks/${item.id}`;
+//console.log(item);
+            ret.push(item);
+        });
+        return ret
+    },    
+    /**
+     *
+     * @param
+     *
+     * @return
+     */
+    init() {
+console.log("init", new Date().toString() );
+    }
+};
