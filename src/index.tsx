@@ -12,7 +12,11 @@ import taskRouter from './routes/tasks';
 import {AlpineTest} from './views/alpine1/App';
 import {AlpineTest2} from './views/alpine2/App';
 import {AlpineTest3} from './views/alpine3/App';
-
+/* tasks */
+import {TaskIndex} from './views/tasks/App';
+import {TaskShow} from './views/tasks/show/App';
+import {TaskCreate} from './views/tasks/create/App';
+//
 import {Csr1} from './views/csr1/App';
 import {Csr2} from './views/csr2/App';
 //
@@ -66,7 +70,21 @@ app.get('/alpine2', async (c) => {
 app.get('/alpine3', async (c) => { 
   return c.html(<AlpineTest3 items={[]} />);
 });
-
+/* tasks */
+app.get('/tasks', async (c) => { 
+  const items = await taskRouter.get_list(c, c.env.DB);
+  return c.html(<TaskIndex items={items} />);
+});
+app.get('/tasks/create', async (c) => { 
+  return c.html(<TaskCreate />);
+});
+app.get('/tasks/:id', async (c) => { 
+  const {id} = c.req.param();
+console.log("id=", id);
+  const item = await taskRouter.get(c, c.env.DB, id);
+console.log(item);
+  return c.html(<TaskShow item={item} id={Number(id)} />);
+});
 /* */
 app.get('/test/test1', async (c) => { return await testRouter.test1(c.env.DB); });
 /* CSR */

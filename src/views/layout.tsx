@@ -21,6 +21,7 @@ export const Layout: FC = (props) => {
         <a href="/alpine1"><span class="ps-2">[ alpine1 ]</span></a>
         <a href="/alpine2"><span class="ps-2">[ alpine2 ]</span></a>
         <a href="/alpine3"><span class="ps-2">[ alpine3 ]</span></a>
+        <a href="/tasks"><span class="ps-2">[ Tasks ]</span></a>
       </div>
       <hr />
       <body>
