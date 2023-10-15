@@ -16,6 +16,7 @@ import {AlpineTest3} from './views/alpine3/App';
 import {TaskIndex} from './views/tasks/App';
 import {TaskShow} from './views/tasks/show/App';
 import {TaskCreate} from './views/tasks/create/App';
+import {TaskIndex2} from './views/task2/App';
 //
 import {Csr1} from './views/csr1/App';
 import {Csr2} from './views/csr2/App';
@@ -85,6 +86,12 @@ console.log("id=", id);
 console.log(item);
   return c.html(<TaskShow item={item} id={Number(id)} />);
 });
+//task2
+app.get('/task2', async (c) => { 
+//  const items = await taskRouter.get_list(c, c.env.DB);
+  return c.html(<TaskIndex2 items={[]} />);
+});
+
 /* */
 app.get('/test/test1', async (c) => { return await testRouter.test1(c.env.DB); });
 /* CSR */

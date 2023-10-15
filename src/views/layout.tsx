@@ -18,10 +18,13 @@ export const Layout: FC = (props) => {
       <div class="text-center py-2">
         <a href="/">[ home ]</a>
         <a href="/test/test_index"><span class="ps-2">[test]</span></a>
+        {/*
         <a href="/alpine1"><span class="ps-2">[ alpine1 ]</span></a>
         <a href="/alpine2"><span class="ps-2">[ alpine2 ]</span></a>
+        */}
         <a href="/alpine3"><span class="ps-2">[ alpine3 ]</span></a>
         <a href="/tasks"><span class="ps-2">[ Tasks ]</span></a>
+        <a href="/task2"><span class="ps-2">[ Task2 ]</span></a>
       </div>
       <hr />
       <body>
