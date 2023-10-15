@@ -31,9 +31,7 @@ export const TaskIndex: FC<{ items: any[] }> = (props: { items: any[] }) => {
                 id: <span class="mb-3 font-normal text-gray-700" x-text="item.id"></span>
                 , <span class="mb-3 font-normal text-gray-700" x-text="item.createdAt">
                 </span>
-                <a :href="item.url" 
-                class="input_textarea">
-                Show
+                <a :href="item.url" class="btn-purple">Show
                 </a>                
                 <hr class="my-2" />
               </div>
